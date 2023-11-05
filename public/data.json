@@ -1,0 +1,100 @@
+ [
+     {
+       "job_title": "Front-end Developer",
+       "category": "Web Development",
+       "deadline": "2023-11-30",
+       "minimum_price": 3000,
+       "maximum_price": 5000,
+       "short_description": "Create responsive and user-friendly front-end interfaces using HTML, CSS, and JavaScript."
+     },
+     {
+       "job_title": "SEO Specialist",
+       "category": "Digital Marketing",
+       "deadline": "2023-12-15",
+       "minimum_price": 1500,
+       "maximum_price": 2500,
+       "short_description": "Optimize website content for search engines, improve rankings, and increase organic traffic."
+     },
+     {
+       "job_title": "Logo Designer",
+       "category": "Graphics Design",
+       "deadline": "2023-11-20",
+       "minimum_price": 500,
+       "maximum_price": 1000,
+       "short_description": "Create unique and visually appealing logos for various clients."
+     },
+     {
+       "job_title": "Back-end Developer",
+       "category": "Web Development",
+       "deadline": "2023-12-10",
+       "minimum_price": 4000,
+       "maximum_price": 6000,
+       "short_description": "Build server-side applications and databases for web and mobile applications."
+     },
+     {
+       "job_title": "Social Media Manager",
+       "category": "Digital Marketing",
+       "deadline": "2023-12-05",
+       "minimum_price": 2000,
+       "maximum_price": 3500,
+       "short_description": "Manage and grow social media accounts, create engaging content, and run ad campaigns."
+     },
+     {
+       "job_title": "Graphic Designer",
+       "category": "Graphics Design",
+       "deadline": "2023-11-25",
+       "minimum_price": 800,
+       "maximum_price": 1500,
+       "short_description": "Design marketing materials, brochures, and visuals for online and offline use."
+     },
+     {
+       "job_title": "Full-stack Developer",
+       "category": "Web Development",
+       "deadline": "2023-12-20",
+       "minimum_price": 5000,
+       "maximum_price": 8000,
+       "short_description": "Work on both front-end and back-end development for comprehensive web solutions."
+     },
+     {
+       "job_title": "Content Marketer",
+       "category": "Digital Marketing",
+       "deadline": "2023-12-08",
+       "minimum_price": 1800,
+       "maximum_price": 3000,
+       "short_description": "Create and promote high-quality content to drive brand awareness and lead generation."
+     },
+     {
+       "job_title": "UI/UX Designer",
+       "category": "Graphics Design",
+       "deadline": "2023-11-30",
+       "minimum_price": 1000,
+       "maximum_price": 2000,
+       "short_description": "Design user interfaces and user experiences for websites and applications."
+     },
+     {
+       "job_title": "Web Security Specialist",
+       "category": "Web Development",
+       "deadline": "2023-12-15",
+       "minimum_price": 3500,
+       "maximum_price": 5500,
+       "short_description": "Ensure the security and integrity of web applications by identifying and mitigating vulnerabilities."
+     },
+     {
+       "job_title": "Email Marketing Manager",
+       "category": "Digital Marketing",
+       "deadline": "2023-12-12",
+       "minimum_price": 1600,
+       "maximum_price": 2800,
+       "short_description": "Plan and execute email marketing campaigns to engage and convert subscribers."
+     },
+     {
+       "job_title": "Illustrator",
+       "category": "Graphics Design",
+       "deadline": "2023-11-23",
+       "minimum_price": 700,
+       "maximum_price": 1200,
+       "short_description": "Create hand-drawn or digital illustrations for various projects and purposes."
+     }
+   ]
+
+ 

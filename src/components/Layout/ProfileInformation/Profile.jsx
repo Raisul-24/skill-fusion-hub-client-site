@@ -9,17 +9,17 @@ const Profile = () => {
          {
             user ? <div>
                <h2 className="text-2xl text-center my-5">Your Profile</h2>
-               <div className="hero min-h-screen bg-base-200">
+               <div className="hero min-h-screen bg-base-200 rounded-xl">
                   <div className="hero-content flex-col lg:flex-row-reverse">
                      {
-                        user ? <img src={user?.photoURL} className="max-w-sm rounded-lg shadow-2xl" />
+                        user?.photoURL ? <img src={user?.photoURL} className="max-w-sm rounded-lg shadow-2xl" />
                            :
-                           <h2 className="card-title text-red-300 max-w-sm rounded-lg shadow-2xl">Photo not Found!!</h2>
+                           <h2 className="card-title text-red-300 max-w-sm rounded-lg shadow-2xl border-2 p-2 border-lime-500">Photo not Found!!</h2>
                      }
                      <div>
-                        <h1 className="text-5xl font-bold">Name: {user?.displayName}</h1>
+                        <h1 className="text-5xl font-bold">Name: {user?.displayName ? user.displayName : <p className="text-xl">Name not found!!</p>}</h1>
                         <p className="py-6">Email: {user?.email}</p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <button className="btn btn-outline btn-error"><Link to='/'>Back to Home </Link></button>
                      </div>
                   </div>
                </div>

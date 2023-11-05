@@ -59,13 +59,21 @@ const Navbar = () => {
                   <div className="">
                      {
                         user ?  <div className="flex items-center">
-                           <h1 className="text-xs md:text-sm font-mono mr-0 md:mr-2">{user?.displayName}</h1>
-                           <img src={user?.photoURL} className="w-10 rounded-full"/> 
+                           {
+                              user?.displayName ? <h1 className="text-xs md:text-sm font-mono mr-0 md:mr-2">{user?.displayName} </h1>
+                              : <h1 className="text-xs md:text-sm font-mono mr-0 md:mr-2">{user?.email} </h1>
+                           }
+                           
+                           {
+                              user?.photoURL ? <img src={user?.photoURL} className="w-10 rounded-full"/> 
+                              : <img src="https://i.ibb.co/GcKBj9F/boy2.jpg" className="w-10 rounded-full" />
+                           }
+                           
                         </div>
                         :
                         <button className=""><Link to='/login'>Login</Link></button>
                         
-                        // <img src="https://i.ibb.co/GcKBj9F/boy2.jpg" />
+                        // 
                      }
                      
                   </div>

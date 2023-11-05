@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitter, FaGithub } from "react-icons/fa6";
 import { useContext, useState } from "react";
@@ -17,6 +17,7 @@ const Register = () => {
 
    const { createUser, googleSignIn, githubSignIn, twitterSignIn } = useContext(AuthContext);
    const navigate = useNavigate();
+   const location = useLocation();
    // console.log(user);
    const handleRegister = async (e) => {
       e.preventDefault();
@@ -26,9 +27,15 @@ const Register = () => {
       try {
          await createUser(email, password);
          // console.log("created");
+         
          toast.success('Log In Successfully!!', { id: toastId});
 
-         navigate('/');
+         if(location.state && location.state.from){
+            navigate(location.state.from.pathname)
+         }
+         else{
+            navigate('/')
+         }
       } catch (error) {
          // console.log(error)
          toast.error(error.message, { id: toastId});
@@ -39,7 +46,12 @@ const Register = () => {
          await googleSignIn();
          toast.success('Sign In with Google Successfully');
 
-         navigate('/')
+         if(location.state && location.state.from){
+            navigate(location.state.from.pathname)
+         }
+         else{
+            navigate('/')
+         }
       } catch (error) {
          toast.error(error.message);
       }
@@ -49,7 +61,12 @@ const Register = () => {
          await githubSignIn();
          toast.success('Sign In with Github Successfully');
 
-         navigate('/')
+         if(location.state && location.state.from){
+            navigate(location.state.from.pathname)
+         }
+         else{
+            navigate('/')
+         }
       } catch (error) {
          toast.error(error.message);
       }
@@ -59,7 +76,12 @@ const Register = () => {
          await twitterSignIn();
          toast.success('Sign In with Twitter Successfully');
 
-         navigate('/')
+         if(location.state && location.state.from){
+            navigate(location.state.from.pathname)
+         }
+         else{
+            navigate('/')
+         }
       } catch (error) {
          toast.error(error.message);
       }
