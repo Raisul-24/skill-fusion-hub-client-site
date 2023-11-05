@@ -1,7 +1,7 @@
 import Banner from "./Banner";
 import { useEffect, useState } from "react";
 import JobCard from "./JobCard";
-import { Tab, TabList, Tabs } from "react-tabs";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
    const filteredJobs = selectedCategory
       ? allJobs.filter(job => job.category === selectedCategory)
       : allJobs;
-   console.log(filteredJobs.length)
+   // console.log(filteredJobs.length)
 
    return (
       <div>
@@ -32,15 +32,27 @@ const Home = () => {
                <Tab onClick={() => setSelectedCategory("Digital Marketing")} className="btn btn-outline btn-info">Digital Marketing</Tab>
                <Tab onClick={() => setSelectedCategory("Graphics Design")} className="btn btn-outline btn-info">Graphics Design</Tab>
             </TabList>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-            {filteredJobs.map(job => (
-               // <TabPanel key={job._id}>
-                  <JobCard key={job._id} job={job} />
-               // </TabPanel>
-               
-            ))}
-           </div>
+
+            <TabPanel>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+                  {filteredJobs.map(job => <JobCard key={job._id} job={job}></JobCard>)}
+               </div>
+            </TabPanel>
+            <TabPanel>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+                  {filteredJobs.map(job => <JobCard key={job._id} job={job}></JobCard>)}
+               </div>
+            </TabPanel>
+            <TabPanel>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+                  {filteredJobs.map(job => <JobCard key={job._id} job={job}></JobCard>)}
+               </div>
+            </TabPanel>
+            <TabPanel>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+                  {filteredJobs.map(job => <JobCard key={job._id} job={job}></JobCard>)}
+               </div>
+            </TabPanel>
          </Tabs>
 
       </div>

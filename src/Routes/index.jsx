@@ -11,6 +11,7 @@ import MyBids from "../Pages/MyBids/MyBids";
 import BidRequests from "../Pages/BidRequest/BidRequests";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import JobDetails from "../Pages/JobDetails/JobDetails";
 
 const router = createBrowserRouter([
    {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
          {
             path: 'bidRequests',
             element: <BidRequests></BidRequests>,
+         },
+         {
+            path: 'jobDetails/:id',
+            element: <JobDetails></JobDetails>,
+            loader: ({params}) => fetch(`http://localhost:3001/jobs/${params.id}`),
          }
       ],
    },
