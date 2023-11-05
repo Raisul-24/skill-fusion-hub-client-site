@@ -141,7 +141,7 @@ const Register = () => {
 
                   <div className="p-6 pt-0">
                      <input
-                        className="block w-full select-none rounded-lg bg-gradient-to-tr from-[#FF3811] to-[#f37a62] py-3 px-6 text-center align-middle  text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        className="block w-full select-none rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 py-3 px-6 text-center align-middle  text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="submit"
                         data-ripple-light="true"
                         value="Register"

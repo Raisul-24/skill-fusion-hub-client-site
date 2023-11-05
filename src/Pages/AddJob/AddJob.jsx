@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const AddJob = () => {
@@ -12,6 +14,8 @@ const AddJob = () => {
    const [minPrice,setMinPrice] = useState('');
    const [maxPrice,setMaxPrice] = useState('');
    const [description,setDescription] = useState('');
+   const navigate = useNavigate();
+
 
    const isValidDate = (date) => {
       const selectedDate = new Date(date);
@@ -32,8 +36,8 @@ const AddJob = () => {
          minimum_price:minPrice,
          maximum_price:maxPrice,
          short_description: description}
-      console.log(newJob);
-      fetch('http://localhost:3001/jobs',{
+      // console.log(newJob);
+      fetch('http://localhost:3001/postedJobs',{
          method: 'POST',
          headers: {
             'content-type' : 'application/json'
@@ -42,8 +46,9 @@ const AddJob = () => {
       })
       .then(res => res.json())
       .then(data => {
-         console.log('insert',data);
+         // console.log('insert',data);
          if(data.insertedId){
+            navigate('/myPostedJobs');
             Swal.fire({
                position: 'top-end',
                icon: 'success',
