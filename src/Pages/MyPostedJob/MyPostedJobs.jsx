@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MyPostedJobs = () => {
@@ -13,7 +15,39 @@ const MyPostedJobs = () => {
          .then(res => res.json())
          .then(data => setPostedJobs(data))
    }, [url])
-   console.log(postedJobs)
+   // console.log(postedJobs)
+   const handleDelete = id => {
+      Swal.fire({
+         title: 'Are you sure?',
+         text: "You won't be able to revert this!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+         if (result.isConfirmed) {
+            fetch(`http://localhost:3001/postedJobs/${id}`,{
+               method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data=>{
+               console.log(data);
+               if(data.deletedCount > 0){
+                  Swal.fire(
+                     'Deleted!',
+                     'Your job has been deleted.',
+                     'success'
+                  )
+                  const remaining = postedJobs.filter(booking => booking._id !==id);
+                  setPostedJobs(remaining);
+               }
+            })
+            
+         }
+      })
+   }
+
    return (
       <div>
          <div className="overflow-x-auto ">
@@ -37,8 +71,9 @@ const MyPostedJobs = () => {
                         <td>
                            <span className="badge badge-ghost badge-sm">{job.deadline}</span>
                         </td>
-                        <td><button className="btn btn-xs btn-outline btn-error">Delete</button></td>
-                        <td><button className="btn btn-xs btn-outline btn-success">Update</button></td>
+                        <td><button onClick={() => handleDelete(`${job._id}`)}
+                         className="btn btn-xs btn-outline btn-error">Delete</button></td>
+                        <td><Link to={`/updateJob/${job._id}`}><button className="btn btn-xs btn-outline btn-success">Update</button></Link></td>
                      </tr>
                   </tbody>)
                }

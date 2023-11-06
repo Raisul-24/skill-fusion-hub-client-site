@@ -27,8 +27,8 @@ const JobDetails = () => {
       } else {
          const form = e.target;
          const developerEmail = user?.email;
-         const buyerEmail = { email }
-         const jobTitle = { job_title }
+         const buyerEmail = form.buyer_email.value;
+         const jobTitle = form.job_Title.value;
          const myNewBid = {
             job_title: jobTitle,
             buyer_email: buyerEmail,
@@ -71,7 +71,7 @@ const JobDetails = () => {
                            <label className="label">
                               <span className="label-text text-white">Job Title: </span>
                            </label>
-                           <input type="text"
+                           <input type="text" name="job_Title"
                               defaultValue={job_title} className="input bg-slate-200 border-2 border-cyan-500 rounded-xl w-full text-lg py-2 text-[#374151]" readOnly />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 px-0 md:px-12 lg:px-40 gap-8">
@@ -79,7 +79,7 @@ const JobDetails = () => {
                               <label className="label">
                                  <span className="label-text text-white">Buyer Email: </span>
                               </label>
-                              <input type="email"
+                              <input type="email" name="buyer_email"
                                  defaultValue={email} className="input bg-slate-200 border-2 border-cyan-500 rounded-xl w-full text-lg py-2 text-[#374151]" readOnly />
                            </div>
                            <div className="form-control md:w-full ">
