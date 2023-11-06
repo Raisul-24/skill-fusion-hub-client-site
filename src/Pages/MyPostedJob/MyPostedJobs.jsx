@@ -50,8 +50,8 @@ const MyPostedJobs = () => {
 
    return (
       <div>
-         <div className="overflow-x-auto ">
-            <h1 className="text-5xl text-center font-bold my-5"> Posted Jobs</h1>
+      <h1 className="text-2xl md:text-5xl text-center font-bold my-5"> Posted Jobs</h1>
+         <div className="overflow-x-auto mb-16">
             <table className="table">
                <thead>
                   <tr>

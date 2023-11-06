@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
@@ -8,6 +8,7 @@ const JobDetails = () => {
    // console.log(job);
    const { job_title, email, deadline, minimum_price, maximum_price } = job;
    const { user } = useContext(AuthContext);
+   const navigate = useNavigate();
    // console.log(user.email)
    const [price, setPrice] = useState('');
    const [developerDeadline, setDeveloperDeadline] = useState('');
@@ -16,8 +17,6 @@ const JobDetails = () => {
    const handleMyBids = (e) => {
       e.preventDefault();
       if (user.email === email) {
-         // Display a message or perform other actions as needed for the case when the user cannot bid on their own job.
-         // You can show an alert or a message to the user.
          Swal.fire({
             icon: 'error',
             title: 'You cannot bid on your own job.',
@@ -36,6 +35,7 @@ const JobDetails = () => {
             buyer_deadline: developerDeadline,
             price: price
          }
+         console.log(myNewBid)
          fetch('http://localhost:3001/myCart', {
             method: 'POST',
             headers: {
@@ -47,6 +47,7 @@ const JobDetails = () => {
             .then(data => {
                console.log('insert', data);
                if (data.insertedId) {
+                  navigate('/myBids');
                   Swal.fire({
                      position: 'center',
                      icon: 'success',

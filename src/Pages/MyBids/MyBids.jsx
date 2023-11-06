@@ -1,9 +1,55 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const MyBids = () => {
+   const { user } = useContext(AuthContext);
+   console.log(user)
+   const [myBids, setMyBids] = useState([]);
+
+   const url = `http://localhost:3001/myCart?developer_email=${user?.email}`;
+
+   useEffect(() => {
+      fetch(url)
+         .then(res => res.json())
+         .then(data => setMyBids(data))
+   }, [url])
+   console.log(myBids)
    return (
       <div>
-         my MyBids
+         <h1 className="text-2xl md:text-5xl text-center font-bold my-5">My Bids</h1>
+         <div className="overflow-x-auto mb-16">
+
+            <table className="table">
+               <thead>
+                  <tr>
+                     <th>Job Title</th>
+                     <th>Buyer Email</th>
+                     <th>DeadLine</th>
+                     <th>Status</th>
+                     <th>Complete</th>
+                  </tr>
+               </thead>
+               {
+                  myBids.map(job => <tbody key={job._id}>
+                     <tr>
+                        <td>
+                           <div className="font-semibold">{job.job_title}</div>
+                        </td>
+                        <td>
+                           <div>{job.buyer_email}</div>
+                        </td>
+                        <td>
+                           <span className="badge md:badge-ghost badge-sm">{job.buyer_deadline}</span>
+                        </td>
+                        <td><button className="btn btn-xs btn-outline btn-error">Delete</button></td>
+                        <td><button className="btn btn-xs btn-outline btn-success">Complete</button></td>
+                     </tr>
+                  </tbody>)
+               }
+
+            </table>
+         </div>
       </div>
    );
 };

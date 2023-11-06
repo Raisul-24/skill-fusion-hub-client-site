@@ -16,7 +16,6 @@ const AddJob = () => {
    const [description,setDescription] = useState('');
    const navigate = useNavigate();
 
-
    const isValidDate = (date) => {
       const selectedDate = new Date(date);
       const currentDate = new Date();
@@ -36,7 +35,18 @@ const AddJob = () => {
          minimum_price:minPrice,
          maximum_price:maxPrice,
          short_description: description}
-      // console.log(newJob);
+         fetch('http://localhost:3001/jobs',{
+            method: 'POST',
+            headers: {
+               'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newJob)
+         })
+         .then(res => res.json())
+         .then(data => {
+            console.log('insert to jobs',data);
+         })
+      // 2st fetch
       fetch('http://localhost:3001/postedJobs',{
          method: 'POST',
          headers: {
