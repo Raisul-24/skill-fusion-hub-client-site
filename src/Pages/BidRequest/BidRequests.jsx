@@ -13,7 +13,7 @@ const BidRequests = () => {
          .then(res => res.json())
          .then(data => setBidRequest(data))
    }, [url])
-   console.log(bidRequest)
+   // console.log(bidRequest)
 
 
    const handleAccept = (id) => {

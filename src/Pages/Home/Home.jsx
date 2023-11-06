@@ -9,7 +9,7 @@ const Home = () => {
    const [selectedCategory, setSelectedCategory] = useState(null);
    const url = 'http://localhost:3001/jobs';
    useEffect(() => {
-      fetch(url)
+      fetch(url, {credentials: "include"})
          .then(res => res.json())
          .then(data => {
             setAllJobs(data);
