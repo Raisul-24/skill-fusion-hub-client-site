@@ -12,7 +12,13 @@ const MyBids = () => {
    useEffect(() => {
       fetch(url)
          .then(res => res.json())
-         .then(data => setMyBids(data))
+         .then(data => {
+            data.sort((a, b) => {
+               const customOrder = ['Accepted', 'Pending', 'Rejected'];
+               return customOrder.indexOf(a.status) - customOrder.indexOf(b.status);
+             });
+            setMyBids(data)
+         })
    }, [url])
    // console.log(myBids)
 
@@ -42,12 +48,13 @@ const MyBids = () => {
          }
       })
 
-   }
+   };
+
+   
    return (
       <div>
          <h1 className="text-2xl md:text-5xl text-center font-bold my-5">My Bids</h1>
          <div className="overflow-x-auto mb-16">
-
             <table className="table">
                <thead>
                   <tr>
