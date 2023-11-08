@@ -1,9 +1,9 @@
 # React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 # b8a11-client-side-Raisul-24
+
+# Live link: https://car-doctor-c273a.web.app
+
+# Some features of this project:
+1.Authentication : User can add jobs or bid requests if he/she has logged by email or sign up. then it redirect to posted job user can delete and update his posted job. jobs are shown in tabular format.
+2. Date validation: if user add jobs user can set valid date otherwise shows error.
+3. 
