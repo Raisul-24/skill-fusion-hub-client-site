@@ -6,6 +6,7 @@ const MyBids = () => {
    const { user } = useContext(AuthContext);
    // console.log(user)
    const [myBids, setMyBids] = useState([]);
+   const [loading, setLoading] = useState(true);
 
    const url = `http://localhost:3001/myCart?developer_email=${user?.email}`;
 
@@ -17,10 +18,14 @@ const MyBids = () => {
                const customOrder = ['Accepted', 'Pending', 'Rejected'];
                return customOrder.indexOf(a.status) - customOrder.indexOf(b.status);
              });
-            setMyBids(data)
+            setMyBids(data);
+            setLoading(false);
          })
    }, [url])
    // console.log(myBids)
+   if (loading) {
+      return <div className="flex justify-center"><span className="loading loading-bars loading-lg"></span></div>; 
+    }
 
    const handleCompleteStatus = (id) => {
       updateBidStatus(id, 'Completed');

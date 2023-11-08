@@ -6,12 +6,17 @@ const BidRequests = () => {
    const { user } = useContext(AuthContext);
    // console.log(user)
    const [bidRequest, setBidRequest] = useState([]);
+   const [loading, setLoading] = useState(true);
+
 
    const url = `http://localhost:3001/myCart?buyer_email=${user?.email}`;
    useEffect(() => {
       fetch(url)
          .then(res => res.json())
-         .then(data => setBidRequest(data))
+         .then(data => {
+            setBidRequest(data);
+            setLoading(false)
+         })
    }, [url])
    // console.log(bidRequest)
 
@@ -50,7 +55,9 @@ const BidRequests = () => {
 
    }
 
-
+   if (loading) {
+      return <div className="flex justify-center"><span className="loading loading-bars loading-lg"></span></div>; 
+    }
    return (
       <div>
          <h1 className="text-2xl md:text-5xl text-center font-bold my-5">Bid Request</h1>

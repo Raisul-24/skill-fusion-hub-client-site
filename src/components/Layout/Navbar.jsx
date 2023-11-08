@@ -24,7 +24,6 @@ const Navbar = () => {
    </>
    const profileLinks = <>
       <li><Link to='/profile'>Profile</Link></li>
-      <li><Link to='/settings'>Settings</Link></li>
       {
          user?.email ?<li><Link onClick={handleLogOut}>Logout</Link></li>
          :
@@ -45,7 +44,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center">
                <img src="images/logo.png" className="w-16 " alt=""  />
-            <Link to='/' className="hidden md:flex btn btn-ghost normal-case text-xl font-bold">Skill Fusion Hub </Link>
+            <Link to='/' className="hidden md:flex btn btn-ghost normal-case text-xl font-bold ">Skill Fusion Hub </Link>
             </div>
          </div>
          <div className="navbar-center hidden lg:flex">

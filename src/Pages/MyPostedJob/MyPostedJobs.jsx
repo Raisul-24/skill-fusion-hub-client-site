@@ -7,13 +7,17 @@ import { Link } from "react-router-dom";
 const MyPostedJobs = () => {
    const { user } = useContext(AuthContext);
    const [postedJobs, setPostedJobs] = useState([]);
+   const [loading, setLoading] = useState(true);
 
    const url = `http://localhost:3001/postedJobs?email=${user?.email}`;
 
    useEffect(() => {
       fetch(url)
          .then(res => res.json())
-         .then(data => setPostedJobs(data))
+         .then(data => {
+            setPostedJobs(data);
+            setLoading(false)
+         })
    }, [url])
    // console.log(postedJobs)
    const handleDelete = id => {
@@ -47,6 +51,9 @@ const MyPostedJobs = () => {
          }
       })
    }
+   if (loading) {
+      return <div className="flex justify-center"><span className="loading loading-bars loading-lg"></span></div>; 
+    }
 
    return (
       <div>
