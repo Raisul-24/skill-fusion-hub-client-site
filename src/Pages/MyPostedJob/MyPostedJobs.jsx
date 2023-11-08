@@ -9,7 +9,7 @@ const MyPostedJobs = () => {
    const [postedJobs, setPostedJobs] = useState([]);
    const [loading, setLoading] = useState(true);
 
-   const url = `http://localhost:3001/postedJobs?email=${user?.email}`;
+   const url = `https://skill-fusion-hub-online-market-place-server-side.vercel.app/postedJobs?email=${user?.email}`;
 
    useEffect(() => {
       fetch(url)
@@ -31,7 +31,7 @@ const MyPostedJobs = () => {
          confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
          if (result.isConfirmed) {
-            fetch(`http://localhost:3001/postedJobs/${id}`,{
+            fetch(`https://skill-fusion-hub-online-market-place-server-side.vercel.app/postedJobs/${id}`,{
                method: 'DELETE'
             })
             .then(res => res.json())

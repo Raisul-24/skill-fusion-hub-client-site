@@ -11,7 +11,7 @@ const Home = () => {
    const [activeTabIndex, setActiveTabIndex] = useState(0);
 
 
-   const url = 'http://localhost:3001/jobs';
+   const url = 'https://skill-fusion-hub-online-market-place-server-side.vercel.app/jobs';
    useEffect(() => {
       fetch(url, {credentials: "include"})
          .then(res => res.json())

@@ -39,7 +39,7 @@ const UpdateJob = () => {
          short_description: updatedDescription}
       // console.log(updatedJob);
             // send data to server
-            fetch(`http://localhost:3001/postedJobs/${_id}`,{
+            fetch(`https://skill-fusion-hub-online-market-place-server-side.vercel.app/postedJobs/${_id}`,{
                method: 'PUT',
                headers: {
                   'Content-type' : "application/json"

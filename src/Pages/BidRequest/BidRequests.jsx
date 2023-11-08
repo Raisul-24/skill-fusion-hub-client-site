@@ -9,7 +9,7 @@ const BidRequests = () => {
    const [loading, setLoading] = useState(true);
 
 
-   const url = `http://localhost:3001/myCart?buyer_email=${user?.email}`;
+   const url = `https://skill-fusion-hub-online-market-place-server-side.vercel.app/myCart?buyer_email=${user?.email}`;
    useEffect(() => {
       fetch(url)
          .then(res => res.json())
@@ -29,7 +29,7 @@ const BidRequests = () => {
       updateBidStatus(id, 'Rejected');
    };
    const updateBidStatus = (id, status) => {
-      fetch(`http://localhost:3001/myCart/${id}`,{
+      fetch(`https://skill-fusion-hub-online-market-place-server-side.vercel.app/myCart/${id}`,{
          method: 'PATCH',
          headers: {
             'content-type': 'application/json'

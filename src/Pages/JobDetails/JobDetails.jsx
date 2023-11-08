@@ -36,7 +36,7 @@ const JobDetails = () => {
             price: price
          }
          console.log(myNewBid)
-         fetch('http://localhost:3001/myCart', {
+         fetch('https://skill-fusion-hub-online-market-place-server-side.vercel.app/myCart', {
             method: 'POST',
             headers: {
                'content-type': 'application/json'

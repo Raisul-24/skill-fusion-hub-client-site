@@ -35,7 +35,7 @@ const AddJob = () => {
          minimum_price:minPrice,
          maximum_price:maxPrice,
          short_description: description}
-         fetch('http://localhost:3001/jobs',{
+         fetch('https://skill-fusion-hub-online-market-place-server-side.vercel.app/jobs',{
             method: 'POST',
             headers: {
                'content-type' : 'application/json'
@@ -47,7 +47,7 @@ const AddJob = () => {
             console.log('insert to jobs',data);
          })
       // 2st fetch
-      fetch('http://localhost:3001/postedJobs',{
+      fetch('https://skill-fusion-hub-online-market-place-server-side.vercel.app/postedJobs',{
          method: 'POST',
          headers: {
             'content-type' : 'application/json'

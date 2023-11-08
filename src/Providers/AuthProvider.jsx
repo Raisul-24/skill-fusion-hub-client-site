@@ -28,13 +28,13 @@ const AuthProvider = ({ children }) => {
          setLoading(false);
          // user exit to generate token
          if (currentUser) {
-            axios.post('http://localhost:3001/jwt', loggedUser, { withCredentials: true })
+            axios.post('https://skill-fusion-hub-online-market-place-server-side.vercel.app/jwt', loggedUser, { withCredentials: true })
                .then(res => {
                   console.log("token response", res.data);
                })
          }
          else {
-            axios.post('http://localhost:3001/logout', loggedUser, { withCredentials: true })
+            axios.post('https://skill-fusion-hub-online-market-place-server-side.vercel.app/logout', loggedUser, { withCredentials: true })
                .then(res => {
                   console.log(res.data);
                })

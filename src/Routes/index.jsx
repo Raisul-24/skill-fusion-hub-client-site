@@ -13,6 +13,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import JobDetails from "../Pages/JobDetails/JobDetails";
 import UpdateJob from "../Pages/UpdateJob/UpdateJob";
+import ContactUs from "../Pages/ConatctUs/ContactUs";
 
 const router = createBrowserRouter([
    {
@@ -33,13 +34,17 @@ const router = createBrowserRouter([
             element:<About></About>,
          },
          {
+            path: 'contact',
+            element: <ContactUs></ContactUs>
+         },
+         {
             path: 'addJob',
             element:<PrivateRoute><AddJob></AddJob></PrivateRoute>,
          },
          {
             path: 'updateJob/:id',
             element: <UpdateJob></UpdateJob>,
-            loader: ({params}) => fetch(`http://localhost:3001/postedJobs/${params.id}`),
+            loader: ({params}) => fetch(`https://skill-fusion-hub-online-market-place-server-side.vercel.app/postedJobs/${params.id}`),
          },
          {
             path: 'myPostedJobs',
@@ -56,7 +61,7 @@ const router = createBrowserRouter([
          {
             path: 'jobDetails/:id',
             element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:3001/jobs/${params.id}`),
+            loader: ({params}) => fetch(`https://skill-fusion-hub-online-market-place-server-side.vercel.app/jobs/${params.id}`),
          }
       ],
    },
