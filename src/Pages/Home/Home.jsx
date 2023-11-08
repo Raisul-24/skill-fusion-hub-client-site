@@ -34,7 +34,7 @@ const Home = () => {
    return (
       <div>
          <Banner></Banner>
-         <Marquee className="my-7">
+         <Marquee pauseOnHover={true} speed={100} className="my-7">
          <p className="mr-5 font-medium text-orange-950">Unlock opportunities, Bid Now!</p>   
          <p className="mr-5 font-medium text-orange-950">Future Tech Haven Where projects come to life!</p>   
          <p className="mr-5 font-medium text-orange-950">Feel free to use these status messages to encourage users to bid on projects and post their jobs on Future Tech Haven!</p>
