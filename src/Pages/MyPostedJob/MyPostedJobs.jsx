@@ -2,24 +2,33 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hook/useAxiosSecure";
+
 
 
 const MyPostedJobs = () => {
    const { user } = useContext(AuthContext);
    const [postedJobs, setPostedJobs] = useState([]);
    const [loading, setLoading] = useState(true);
+   const axiosSecure = useAxiosSecure();
 
    const url = `https://skill-fusion-hub-online-market-place-server-side.vercel.app/postedJobs?email=${user?.email}`;
 
    useEffect(() => {
-      fetch(url)
-         .then(res => res.json())
-         .then(data => {
-            setPostedJobs(data);
-            setLoading(false)
-         })
-   }, [url])
-   // console.log(postedJobs)
+      // fetch(url)
+      //    .then(res => res.json())
+      //    .then(data => {
+      //       setPostedJobs(data);
+      //       setLoading(false)
+      //    })
+      axiosSecure.get(url)
+      .then(res => {
+         setPostedJobs(res.data);
+         setLoading(false)
+      })
+
+   }, [url, axiosSecure])
+   console.log(postedJobs)
    const handleDelete = id => {
       Swal.fire({
          title: 'Are you sure?',
