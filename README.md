@@ -1,7 +1,7 @@
 # React + Vite
 # b8a11-client-side-Raisul-24
 
-# Live link: https://car-doctor-c273a.web.app
+# Live link: https://skill-fusion-hub.netlify.app
 
 # Some features of this project:
 # 1.Authentication : 
