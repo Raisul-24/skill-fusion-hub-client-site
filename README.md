@@ -3,6 +3,7 @@
 
 # Live link: https://skill-fusion-hub.netlify.app
 
+# Server Side: https://github.com/Raisul-24/skill-fusion-hub-server-site
 # Some features of this project:
 1. Authentication : 
 User can add jobs or bid requests if he/she has logged by email or sign up. then it redirect to posted job user can delete and update his posted job. jobs are shown in tabular format.
